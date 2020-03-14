@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!-- saved from url=(0017)https://rewww.ru/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>REWWW</title><meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no"><meta name="theme-color" content="#eeeeee"><meta name="description" content="программирование, дизайн, графика, контент, акционизм"><meta property="og:image" content="https://rewww.ru/screen.png"><style type="text/css">*{border:0;outline:0;margin:0;background:0;-webkit-tap-highlight-color:transparent}::selection{background:#7a4142;color:#eee}body,html{position:absolute;margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#e6e6e6;cursor:default;user-select:none;font: normal 22.5px/1.75 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;color:#394446;}.sel{user-select:text;color:#7a4142;cursor:text;padding:0 1em}a[href]{cursor:pointer;user-select:none;color:#3f8a90}canvas{position:fixed;width:100%;height:100%;top:0;z-index:9999}div{position:absolute;top: 0;left:2vw;max-width:640px;}span{background:rgba(255,255,255,0.75);box-shadow:-2vw 0 rgba(255,255,255,0.75),2vw 0 rgba(255,255,255,0.75);position:relative;z-index:99999}svg{max-width:100%;max-height:100%;margin:auto;top:0;bottom:0;left:0;right:0;position:fixed;z-index:99}a{color:#328288}#jmp{position:fixed;bottom:20px;left:calc(50% - 35px);z-index:99999;cursor:pointer;border:solid 2px #328288;font-family:inherit;background:#fff;padding:5px 10px;text-align:center;height:40px;line-height:0;font-size:inherit;color:inherit}#jmp:hover{background:#328288;color:#fff}#quest{position:fixed;left:0;right:0;bottom:72px;text-align:center;border:solid transparent;margin:auto;max-width:60vw}img{float:left;margin-right:10px;position:relative;z-index:9}</style></head><body><!-- 
+
+--><svg xmlns="//www.w3.org/2000/svg" width="739" height="431" viewBox="0 0 739 431"><lineargradient id="linear-gradient"><stop offset="0%" stop-color="#853838"></stop><stop offset="100%" stop-color="#328288"></stop></lineargradient><path stroke="url(#linear-gradient)" fill="#fff" stroke-linecap="butt" stroke-width="2" d="M580,426V6h30V396h30V156h30V396h30V6h30V426H580Zm-180,0V6h30V396h30V156h30V396h30V6h30V426H400Zm-180,0V6h30V396h30V156h30V396h30V6h30V426H220Zm-90,0V6h60V36H160V156h30v30H160V396h30v30H130ZM70,306H40V426H10V6h90V276H70v30h30V426H70V306Zm0-60V36H40V246H70Z"></path></svg><!--
+
+--><div><span>Программирование, дизайн, 2−4d графика, контент для и акционизм в Сети: <a class="sel" contenteditable="">i@rewww.ru</a><br>Либо вотсап <small>&amp;&amp;</small> телеграм на <a class="sel" contenteditable="">+7 917 680-69-49</a><!--
+
+--><br><a href="https://www.behance.net/kukaew">Портфолио</a><!--
+
+--></span></div><!-- 
+
+--><span id="quest" hidden="">Квест: вызовите биг босса и грейт босса.</span><button id="jmp">прыг!</button><!-- 
+
+--><canvas width="1366" height="646"></canvas><!-- 
+
+--><script async="" src="./REWWW_files/tag.js.Без названия"></script><script type="text/javascript">"use strict"
+const theLastExperience=noWorkers=>{"use strict"
+const struct={points:[{x:0,y:-4,f(s,d){this.y-=0.01*s}},{x:0,y:-16,f(s,d){this.y-=0.02*s*d}},{x:0,y:12,f(s,d){this.y+=0.02*s*d}},{x:-12,y:0},{x:12,y:0},{x:-3,y:34,f(s,d){if(d>0){this.x+=0.01*s
+this.y-=0.015*s}else{this.y+=0.02*s}}},{x:3,y:34,f(s,d){if(d>0){this.y+=0.02*s}else{this.x-=0.01*s
+this.y-=0.015*s}}},{x:-28,y:0,f(s,d){this.x+=this.vx*0.025
+this.y-=0.001*s}},{x:28,y:0,f(s,d){this.x+=this.vx*0.025
+this.y-=0.001*s}},{x:-3,y:64,f(s,d){this.y+=0.015*s
+if(d>0){this.y-=0.01*s}else{this.y+=0.05*s}}},{x:3,y:64,f(s,d){this.y+=0.015*s
+if(d>0){this.y+=0.05*s}else{this.y-=0.01*s}}}],links:[{p0:3,p1:7,size:12,lum:0.5},{p0:1,p1:3,size:24,lum:0.5},{p0:1,p1:0,size:60,lum:0.5,disk:1},{p0:5,p1:9,size:16,lum:0.5},{p0:2,p1:5,size:32,lum:0.5},{p0:1,p1:2,size:50,lum:1},{p0:6,p1:10,size:16,lum:1.5},{p0:2,p1:6,size:32,lum:1.5},{p0:4,p1:8,size:12,lum:1.5},{p0:1,p1:4,size:24,lum:1.5}]}
+class Robot{constructor(color,light,size,x,y,struct){this.x=x
+this.points=[]
+this.links=[]
+this.frame=0
+this.dir=1
+this.size=size
+this.color=Math.round(color)+300
+this.light=light
+for(const p of struct.points){this.points.push(new Robot.Point(size*p.x+x,size*p.y+y,p.f))}
+for(const link of struct.links){const p0=this.points[link.p0]
+const p1=this.points[link.p1]
+const dx=p0.x-p1.x
+const dy=p0.y-p1.y
+this.links.push(new Robot.Link(this,p0,p1,Math.sqrt(dx*dx+dy*dy),link.size*size/3,link.lum,link.force,link.disk))}}
+update(){if(++this.frame%20===0)this.dir=-this.dir
+if(this===pointer.dancerDrag&&this.size<16&&this.frame>600){pointer.dancerDrag=null
+dancers.push(new Robot(this.color,this.light*1.25,this.size*2,pointer.x,pointer.y-100*this.size*2,struct))
+dancers.sort(function(d0,d1){return d0.size-d1.size})}
+for(const link of this.links)link.update()
+for(const point of this.points)point.update(this)
+for(const link of this.links){const p1=link.p1
+if(p1.y>canvas.height*ground-link.size*0.5){p1.y=canvas.height*ground-link.size*0.5
+p1.x-=p1.vx
+p1.vx=0
+p1.vy=0}}
+this.points[3].x+=(this.x-this.points[3].x)*0.001}
+draw(){for(const link of this.links){if(link.size){const dx=link.p1.x-link.p0.x
+const dy=link.p1.y-link.p0.y
+const a=Math.atan2(dy,dx)
+const d=Math.sqrt(dx*dx+dy*dy)
+ctx.save()
+ctx.translate(link.p0.x,link.p0.y)
+ctx.rotate(a)
+ctx.drawImage(link.image,-link.size*0.5,-link.size*0.5,d+link.size,link.size)
+ctx.restore()}}}}
+Robot.Link=class Link{constructor(parent,p0,p1,dist,size,light,force,disk){this.p0=p0
+this.p1=p1
+this.distance=dist
+this.size=size
+this.light=light||1
+this.force=force||0.5
+this.image=this.stroke("hsl("+parent.color/1.6+" ,80%, "+10+"%)",true,disk,dist,size)}
+update(){const p0=this.p0
+const p1=this.p1
+const dx=p1.x-p0.x
+const dy=p1.y-p0.y
+const dist=Math.sqrt(dx*dx+dy*dy)
+if(dist>0.0){const tw=p0.w+p1.w
+const r1=p1.w/tw
+const r0=p0.w/tw
+const dz=(this.distance-dist)*this.force
+const sx=dx/dist*dz
+const sy=dy/dist*dz
+p1.x+=sx*r0
+p1.y+=sy*r0
+p0.x-=sx*r1
+p0.y-=sy*r1}}
+stroke(color,axis,disk,dist,size){let image
+if(noWorkers){image=document.createElement("canvas")
+image.width=dist+size
+image.height=size}else{image=new OffscreenCanvas(dist+size,size)}
+const ict=image.getContext("2d")
+if(disk){ict.strokeStyle=color
+ict.arc(size*0.5+dist,size*0.5,size*0.5-4,0,2*Math.PI,false)
+ict.fillStyle="#fff"
+ict.fill()
+ict.lineWidth=1
+for(let i=size*0.5-4;i>2;i=i-4){ict.beginPath()
+ict.arc(size*0.5+dist-(size*0.5-4-i),size*0.5,i,0,2*Math.PI,false)
+ict.stroke()}}else{ict.beginPath()
+ict.lineCap="round"
+ict.moveTo(size*0.5,size*0.5)
+ict.lineTo(size*0.5+dist,size*0.5)
+for(let i=size*0.5-4;i>4;i=i-8){ict.strokeStyle=color
+ict.lineWidth=i+2
+ict.stroke()
+ict.lineWidth=i
+ict.strokeStyle="#fff"
+ict.stroke()}}
+return image}}
+Robot.Point=class Point{constructor(x,y,fn,w){this.x=x
+this.y=y
+this.w=w||0.5
+this.fn=fn||null
+this.px=x
+this.py=y
+this.vx=0.0
+this.vy=0.0}
+update(robot){if(robot===pointer.dancerDrag&&this===pointer.pointDrag){this.x+=(pointer.x-this.x)*0.1
+this.y+=(pointer.y-this.y)*0.1}
+if(robot!==pointer.dancerDrag){this.fn&&this.fn(16*Math.sqrt(robot.size),robot.dir)}
+this.vx=this.x-this.px
+this.vy=this.y-this.py
+this.px=this.x
+this.py=this.y
+this.vx*=0.995
+this.vy*=0.995
+this.x+=this.vx
+this.y+=this.vy+0.01}}
+const dancers=[]
+let ground=11.0
+let canvas={width:0,height:0,resize:true}
+let ctx=null
+let pointer={x:0,y:0,dancerDrag:null,pointDrag:null}
+const message=e=>{switch(e.data.msg){case"start":canvas.elem=e.data.elem
+canvas.width=canvas.elem.width
+canvas.height=canvas.elem.height
+ctx=canvas.elem.getContext("2d")
+initRobots()
+run()
+break
+case"resize":canvas.width=e.data.width
+canvas.height=e.data.height
+canvas.resize=true
+break
+case"pointerMove":pointer.x=e.data.x
+pointer.y=e.data.y
+break
+case"pointerDown":pointer.x=e.data.x
+pointer.y=e.data.y
+for(const dancer of dancers){for(const point of dancer.points){const dx=pointer.x-point.x
+const dy=pointer.y-point.y
+const d=Math.sqrt(dx*dx+dy*dy)
+if(d<60){pointer.dancerDrag=dancer
+pointer.pointDrag=point
+dancer.frame=0}}}
+break
+case"pointerUp":pointer.dancerDrag=null
+break}}
+const resize=(h)=>{canvas.elem.width=canvas.width
+canvas.elem.height=h||canvas.height
+canvas.resize=false
+ground=canvas.height>500?0.85:1.0
+for(let i=0;i<dancers.length;i++){dancers[i].x=(i+2)*canvas.width/9}}
+const run=()=>{requestAnimationFrame(run)
+if(canvas.resize===true)resize()
+ctx.clearRect(0,0,canvas.width,canvas.height)
+for(const dancer of dancers){dancer.update()
+dancer.draw()}}
+const initRobots=()=>{ground=canvas.height>500?0.85:1.0
+for(let i=0;i<6;i++){dancers.push(new Robot(i*360/7,80,Math.sqrt(canvas.height)/6,(i+2)*canvas.width/9,canvas.height*0.5-100,struct))}} 
+if(noWorkers){return{postMessage(data){message({data:data})}}}else{onmessage=message}}
+let worker=null
+const createWorker=fn=>{const URL=window.URL||window.webkitURL
+return new Worker(URL.createObjectURL(new Blob(["("+fn+")()"])))}
+const canvas=document.querySelector("canvas")
+canvas.width=canvas.offsetWidth
+canvas.height=canvas.offsetHeight
+if(window.Worker&&window.OffscreenCanvas){ worker=createWorker(theLastExperience) 
+const offscreen=canvas.transferControlToOffscreen() 
+worker.postMessage({msg:"start",elem:offscreen},[offscreen])}else{ worker=theLastExperience(true)
+worker.postMessage({msg:"start",elem:canvas})}
+window.addEventListener("resize",()=>{worker.postMessage({msg:"resize",width:canvas.offsetWidth,height:canvas.offsetHeight})},false)
+const jmp=document.getElementById("jmp")
+jmp.addEventListener("click",()=>{worker.postMessage({msg:"resize",width:canvas.offsetWidth,height:canvas.offsetHeight/1.15})
+setTimeout(()=>{worker.postMessage({msg:"resize",width:canvas.offsetWidth,height:canvas.offsetHeight})},100)
+jmp.previousElementSibling.removeAttribute('hidden')},false)
+const pointer={x:0,y:0,down(e){this.move(e)
+worker.postMessage({msg:"pointerDown",x:this.x,y:this.y})},up(e){worker.postMessage({msg:"pointerUp"})},move(e){if(e.targetTouches){e.preventDefault()
+this.x=e.targetTouches[0].clientX
+this.y=e.targetTouches[0].clientY}else{this.x=e.clientX
+this.y=e.clientY}
+worker.postMessage({msg:"pointerMove",x:this.x,y:this.y})}}
+window.addEventListener("mousemove",e=>pointer.move(e),false)
+canvas.addEventListener("touchmove",e=>pointer.move(e),false)
+window.addEventListener("mousedown",e=>pointer.down(e),false)
+window.addEventListener("touchstart",e=>pointer.down(e),false)
+window.addEventListener("mouseup",e=>pointer.up(e),false)
+window.addEventListener("touchend",e=>pointer.up(e),false)</script><!-- 
+
+Yandex.Metrika counter 
+
+--><script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym")
+   ym(51585974, "init", {
+        id:51585974,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script><noscript><div><img src="https://mc.yandex.ru/watch/51585974" style="position:absolute; left:-9999px;" alt="" /></div></noscript><iframe name="ym-native-frame" title="ym-native-frame" frameborder="0" aria-hidden="true" style="opacity: 0 !important; width: 0px !important; height: 0px !important; position: absolute !important; left: 100% !important; bottom: 100% !important; border: 0px !important;" src="./REWWW_files/saved_resource.html"></iframe><ym-measure class="ym-viewport" style="display: block; top: 0px; right: 0px; bottom: 0px; left: 0px; position: fixed; transform: translate(0px, -100%); transform-origin: 0px 0px;"></ym-measure><ym-measure class="ym-zoom" style="bottom: 100%; position: fixed; width: 100vw;"></ym-measure></body></html>
